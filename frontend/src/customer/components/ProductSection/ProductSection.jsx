@@ -7,12 +7,12 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Button } from '@mui/material'; 
 
 const responsive = {
-    0: { items: 1 },
-    568: { items: 2 },
+    0: { items: 1.5 },
+    568: { items: 3 },
     1024: { items: 6 },
 };
 
-const ProductSection = () => {
+const ProductSection = ({sectionName}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [items] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
         <ProductCard key={index}/>
@@ -27,7 +27,8 @@ const ProductSection = () => {
 
     return [
         <div className='px-5 lg:px-8'>
-            <div className='relative p-5'>
+            <h2 className='text-2xl font-bold font-serif mx-6'>{sectionName}</h2>
+            <div className='relative px-5 py-3'>
                 <AliceCarousel
                     mouseTracking
                     disableDotsControls
