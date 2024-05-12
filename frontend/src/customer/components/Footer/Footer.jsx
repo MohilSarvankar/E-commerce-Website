@@ -5,13 +5,13 @@ const Footer = () => {
     return (
         <div>
             <Grid className='bg-[#222] text-white text-center mt-10 py-6' container>
-                <Grid xs={12} sm={6} md={3}>
+                <Grid xs={12} sm={6} md={3} className='py-2'>
                     <Typography variant='h6' className='pb-3'>Categories</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Men</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Women</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Kids</Typography>
                 </Grid>
-                <Grid xs={12} sm={6} md={3}>
+                <Grid xs={12} sm={6} md={3} className='py-2'>
                     <Typography variant='h6' className='pb-3'>Information</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>About Us</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Terms & Conditions</Typography>
@@ -19,14 +19,14 @@ const Footer = () => {
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Shipping & Delivery</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Privacy Policy</Typography>
                 </Grid>
-                <Grid xs={12} sm={6} md={3}>
+                <Grid xs={12} sm={6} md={3} className='py-2'>
                     <Typography variant='h6' className='pb-3'>Useful Links</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Blog</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Contact Us</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Size Guide</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>FAQs</Typography>
                 </Grid>
-                <Grid xs={12} sm={6} md={3}>
+                <Grid xs={12} sm={6} md={3} className='py-2'>
                     <Typography variant='h6' className='pb-3'>Connect With Us</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Facebook</Typography>
                     <Typography className='hover:text-orange-300 pb-2 cursor-pointer'>Instagram</Typography>
