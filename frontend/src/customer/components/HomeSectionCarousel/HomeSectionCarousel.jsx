@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import ProductCard from '../ProductCard/ProductCard';
+import HomeSectionCard from '../HomeSectionCard/HomeSectionCard';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Button } from '@mui/material'; 
@@ -12,10 +12,10 @@ const responsive = {
     1024: { items: 6 },
 };
 
-const ProductSection = ({sectionName}) => {
+const HomeSectionCarousel = ({sectionName}) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [items] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
-        <ProductCard key={index}/>
+        <HomeSectionCard key={index}/>
     )));
 
     const slidePrev = () => setActiveIndex(activeIndex - 1);
@@ -50,4 +50,4 @@ const ProductSection = ({sectionName}) => {
     ];
 };
 
-export default ProductSection;
+export default HomeSectionCarousel;

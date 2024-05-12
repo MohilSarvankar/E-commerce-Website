@@ -1,17 +1,17 @@
 import React from 'react'
 import MainCarousel from '../../components/MainCarousel/MainCarousel'
-import ProductSection from '../../components/ProductSection/ProductSection'
+import HomeSectionCarousel from '../../components/HomeSectionCarousel/HomeSectionCarousel'
 
 const HomePage = () => {
   return (
     <>
         <MainCarousel/>
         <div className='space-y-5 my-5'>
-            <ProductSection sectionName={"Men's Kurta"}/>
-            <ProductSection sectionName={"Men's Shirt"}/>
-            <ProductSection sectionName={"Men's Shoes"}/>
-            <ProductSection sectionName={"Women's Saree"}/>
-            <ProductSection sectionName={"Women's Dress"}/>
+            <HomeSectionCarousel sectionName={"Men's Kurta"}/>
+            <HomeSectionCarousel sectionName={"Men's Shirt"}/>
+            <HomeSectionCarousel sectionName={"Men's Shoes"}/>
+            <HomeSectionCarousel sectionName={"Women's Saree"}/>
+            <HomeSectionCarousel sectionName={"Women's Dress"}/>
         </div>
     </>
   )
