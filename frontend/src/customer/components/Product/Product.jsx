@@ -11,6 +11,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const sortOptions = [
     { name: 'Price: Low to High', href: '#', current: false },
@@ -22,7 +23,39 @@ function classNames(...classes) {
 }
 
 export default function Product() {
-    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+    const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleCheck = (value, sectionId) => {
+        const searchParams = new URLSearchParams(location.search);
+        let filterValue = searchParams.getAll(sectionId);
+
+        if(filterValue.length > 0 && filterValue[0].split(",").includes(value)){
+            filterValue = filterValue[0].split(",").filter(item => item!==value);
+
+            if(filterValue.length === 0){
+                searchParams.delete(sectionId);
+            }
+        }
+        else{
+            filterValue.push(value);
+        }
+
+        if(filterValue.length > 0){
+            searchParams.set(sectionId, filterValue.join(","));
+        }
+
+        const query = searchParams.toString();
+        navigate({search: `${query}`})
+    }
+
+    const handleRadio = (value, sectionId) => {
+        const searchParams = new URLSearchParams(location.search);
+        searchParams.set(sectionId, value)
+        const query = searchParams.toString();
+        navigate({search: `${query}`})
+    }
 
     return (
         <div className="bg-white">
@@ -89,6 +122,7 @@ export default function Product() {
                                                                 {section.options.map((option, optionIdx) => (
                                                                     <div key={option.value} className="flex items-center">
                                                                         <input
+                                                                            onChange={() => handleCheck(option.value,section.id)}
                                                                             id={`filter-mobile-${section.id}-${optionIdx}`}
                                                                             name={`${section.id}[]`}
                                                                             defaultValue={option.value}
@@ -133,6 +167,7 @@ export default function Product() {
                                                                 {section.options.map((option, optionIdx) => (
                                                                     <div key={option.value} className="flex items-center">
                                                                         <input
+                                                                            onChange={()=>handleRadio(option.value, section.id)}
                                                                             id={`filter-mobile-${section.id}-${optionIdx}`}
                                                                             name={`${section.id}[]`}
                                                                             defaultValue={option.value}
@@ -258,6 +293,7 @@ export default function Product() {
                                                         {section.options.map((option, optionIdx) => (
                                                             <div key={option.value} className="flex items-center">
                                                                 <input
+                                                                    onChange={() => handleCheck(option.value,section.id)}
                                                                     id={`filter-${section.id}-${optionIdx}`}
                                                                     name={`${section.id}[]`}
                                                                     defaultValue={option.value}
@@ -302,6 +338,7 @@ export default function Product() {
                                                         {section.options.map((option, optionIdx) => (
                                                             <div key={option.value} className="flex items-center">
                                                                 <input
+                                                                    onChange={()=>handleRadio(option.value, section.id)}
                                                                     id={`filter-${section.id}-${optionIdx}`}
                                                                     name={`${section.id}[]`}
                                                                     defaultValue={option.value}
